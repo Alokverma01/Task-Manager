@@ -27,7 +27,7 @@ export const AppContextProvider = (props) => {
     const getUserData = async () => {
         try {
             const {data} = await axios.get(backendUrl + '/api/user/data')
-            data.success ? setUserData(data.userData) : toast.error("ye dekho")
+            data.success ? setUserData(data.userData) : toast.error(error.message)
         } catch (error) {
             toast.error(error.message)
         }
@@ -38,7 +38,6 @@ export const AppContextProvider = (props) => {
     }, [])
 
     const value = {
-        userData,
         backendUrl,
         isLoggedin, setIsLoggedin,
         userData, setUserData,

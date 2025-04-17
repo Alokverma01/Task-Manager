@@ -28,7 +28,6 @@ const YourTodos = () => {
   
   return (
     <>
-    <Navbar />
     <div className='flex justify-center'>
     <div className='border bg-background/80 backdrop-blur-md mt-5 rounded-md p-5 h-auto w-4/5'>
       {
