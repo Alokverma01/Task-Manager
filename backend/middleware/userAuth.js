@@ -11,7 +11,7 @@ const { userModel } = require("../models/userModel");
                 const tokenDecode  = jwt.verify(token , process.env.JWT_SECRET);
                 const user = await userModel.findById(tokenDecode.id);
                 if(tokenDecode.id){
-                    req.body.userId = tokenDecode.id
+                    req.userId = tokenDecode.id
                 }else {
                     return res.json({success : false, message : "Not Authorized. Login Again"});
                 }

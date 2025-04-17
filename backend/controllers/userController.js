@@ -1,24 +1,25 @@
 const {userModel , todo} = require("../models/userModel.js");
 const { createTodoSchema, updateTodoSchema } = require("../validations/validateUser.js")
 
-const getUserData =  async (req, res) => {
+const getUserData = async (req, res) => {
     try {
-        const {userId} = req.body;
-        const user = await userModel.findById(userId)
-        if(!user){
-            return res.json({success: false, message: error.message});
+        const user = await userModel.findById(req.userId);
+
+        if (!user) {
+            return res.json({ success: false, message: "User not found" });
         }
+
         res.json({
             success: true,
             userData: {
                 name: user.name,
-                isAccountVerified: user.isAccountVerified
             }
         });
     } catch (error) {
-        res.json({success:  false, message: error.message});
+        res.json({ success: false, message: error.message });
     }
-}
+};
+
 const createTodo = async(req, res) => {
     const createPayload = req.body;
 
@@ -33,13 +34,12 @@ const createTodo = async(req, res) => {
         
     await todo.create({
         title : createPayload.title,
-        description : createPayload.description,
         completed : false,
         user: req.user.id,
     })
 
     res.json({
-        message: "Todo Created Successfully"
+        success : true, message: "Todo Created Successfully"
     })
 
     } catch (error) {

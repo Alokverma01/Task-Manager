@@ -11,7 +11,6 @@ const validateUser = z.object({
 
 const createTodoSchema = z.object({
     title: z.string(),
-    description: z.string(),
 })
 
 const updateTodoSchema = z.object({

@@ -16,11 +16,6 @@ const todoSchema = mongoose.Schema({
       type: String,
       required: true
     },
-    description: String,
-    completed: {
-      type: Boolean,
-      default: false
-    }
   }, {
     timestamps: true 
   });

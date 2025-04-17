@@ -3,7 +3,7 @@ import { ThemeProvider } from './components/theme-provider'
 import { Bounce, ToastContainer, } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes } from 'react-router-dom';
-import Main from './components/component/Main';
+import Main from './components/Main';
 import About from "./pages/About"
 import CreateTodo from "./pages/CreateTodo"
 import YourTodos from './pages/YourTodos';
@@ -13,7 +13,7 @@ import Login from './pages/Login';
 function App() {
   return (
     <>
-      <ThemeProvider>
+      <ThemeProvider defaultTheme="dark" storageKey="theme" enableSystem={false}>
         <div>
         <ToastContainer
           position="top-right"
